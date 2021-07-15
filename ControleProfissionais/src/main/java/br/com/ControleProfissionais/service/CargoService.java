@@ -19,7 +19,6 @@ public class CargoService {
 	
 	public void createCargo(CargoDTO cargo) {
 		CargoEntity cargoEntity = new CargoEntity();
-		System.out.println("XXXXXXXXXX" + cargo.getDescricao());
 		cargoEntity.setDescricao(cargo.getDescricao());
 		this.cargoRepository.save(cargoEntity);
 	}
@@ -29,7 +28,7 @@ public class CargoService {
 		List<CargoEntity> cargoEntities = cargoRepository.findAll();
 		cargoEntities.stream().forEach(object -> {
 			CargoDTO cargoDTO = new CargoDTO();
-			//cargoDTO.setFuncionarios(object.getFuncionarios());
+			cargoDTO.setId(object.getId());
 			cargoDTO.setDescricao(object.getDescricao());
 			cargoDTOS.add(cargoDTO);
 		});

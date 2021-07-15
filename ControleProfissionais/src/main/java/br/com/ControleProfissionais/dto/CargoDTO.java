@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Data
 public class CargoDTO {
-
-	//private List<FuncionarioEntity> funcionarios;
+	
+	private Long id;
 	
 	private String Descricao;
 

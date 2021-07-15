@@ -5,7 +5,8 @@ import lombok.Data;
 
 @Data
 public class FuncionarioDTO {
-
+	
+	private Long id;
 	
 	private String nome;
 	
@@ -13,6 +14,8 @@ public class FuncionarioDTO {
 	
 	private boolean situacao;
 
-	private Long cargo;
+	private Long Cargo;
+	
+	//private String Descricao;
 	
 }

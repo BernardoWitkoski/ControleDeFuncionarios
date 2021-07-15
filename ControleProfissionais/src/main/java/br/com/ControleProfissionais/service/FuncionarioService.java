@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ControleProfissionais.dto.CargoDTO;
 import br.com.ControleProfissionais.dto.FuncionarioDTO;
 import br.com.ControleProfissionais.entity.CargoEntity;
 import br.com.ControleProfissionais.entity.FuncionarioEntity;
@@ -33,12 +34,18 @@ public class FuncionarioService {
 
 	public List<FuncionarioDTO> listarTodos() {
 		List<FuncionarioDTO> funcionarioDTOS = new ArrayList<>();
+		//CargoDTO cargoDTO = new CargoDTO();
+		CargoEntity cargoEntity = new CargoEntity();
 		List<FuncionarioEntity> funcionarioEntities = funcionarioRepository.findAll();
 		funcionarioEntities.stream().forEach(object -> {
 			FuncionarioDTO funcionarioDTO = new FuncionarioDTO();
+			funcionarioDTO.setId(object.getId());
 			funcionarioDTO.setNome(object.getNome());
 			funcionarioDTO.setEmail(object.getEmail());
 			funcionarioDTO.setSituacao(object.isSituacao());
+			//funcionarioDTO.setCargo(cargoDTO.getId());
+			funcionarioDTO.setCargo(cargoEntity.getId());
+			funcionarioDTOS.add(funcionarioDTO);
 		});
 		return funcionarioDTOS;
 	}
